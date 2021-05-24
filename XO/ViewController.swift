@@ -42,6 +42,12 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        infoLabel.text = NSLocalizedString("info", comment: "")
+    }
+    
     func displaySymbol(_ column: Int, _ row: Int, symbol: String) {
         let indexOfButton = (xoItems[row].count * column + row)
         xoButtons[indexOfButton].setTitle(symbol, for: .normal)
@@ -59,7 +65,6 @@ class ViewController: UIViewController {
         xoItems[column][row] = oCell
         displaySymbol(column, row, symbol: computerSymbol)
         cellsTaken += 1
-        print(xoItems)
         checkGameStatus()
     }
     

@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Row"; ObjectID = "0Yi-QL-G7p"; */
+"0Yi-QL-G7p.text" = "Row";
+
+/* Class = "UILabel"; text = "Column"; ObjectID = "7c5-HR-z7c"; */
+"7c5-HR-z7c.text" = "Column";
+
+/* Class = "UIButton"; normalTitle = "SET"; ObjectID = "Cu8-5F-XB6"; */
+"Cu8-5F-XB6.normalTitle" = "SET";
+
+/* Class = "UITextField"; placeholder = "from 1 to 3"; ObjectID = "H7A-Rb-jai"; */
+"H7A-Rb-jai.placeholder" = "from 1 to 3";
+
+/* Class = "UITextField"; placeholder = "from 1 to 3"; ObjectID = "W4m-K0-HMk"; */
+"W4m-K0-HMk.placeholder" = "from 1 to 3";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aGP-Bq-lKw"; */
+"aGP-Bq-lKw.text" = "Label";
+
+/* Class = "UILabel"; text = "GAME OVER"; ObjectID = "o0h-da-MXz"; */
+"o0h-da-MXz.text" = "GAME OVER";
