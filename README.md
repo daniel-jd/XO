@@ -1,2 +1,2 @@
-# XO
+# Tic-Tac-Toe
  
