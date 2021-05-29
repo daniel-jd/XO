@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="ueZ-7h-baL">
-                                <rect key="frame" x="79.5" y="111.5" width="255" height="62.5"/>
+                                <rect key="frame" x="79.5" y="129.5" width="255" height="62.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="58P-Zq-pcj">
                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="62.5"/>
@@ -189,9 +189,9 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGP-Bq-lKw">
-                                <rect key="frame" x="40" y="184" width="334" height="40"/>
+                                <rect key="frame" x="40" y="202" width="334" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gPM-xp-en7"/>
+                                    <constraint firstAttribute="height" constant="32" id="gPM-xp-en7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -251,7 +251,7 @@
                             <constraint firstItem="o0V-lV-yIl" firstAttribute="top" secondItem="qgh-BO-Ymp" secondAttribute="bottom" constant="8" symbolic="YES" id="IlL-Gb-XqD"/>
                             <constraint firstItem="DZf-hT-rTj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MDV-FJ-B0I"/>
                             <constraint firstItem="ueZ-7h-baL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Q8f-eK-vcb"/>
-                            <constraint firstItem="Cu8-5F-XB6" firstAttribute="top" secondItem="aGP-Bq-lKw" secondAttribute="bottom" constant="20" id="TpM-wu-uPr"/>
+                            <constraint firstItem="Cu8-5F-XB6" firstAttribute="top" secondItem="aGP-Bq-lKw" secondAttribute="bottom" constant="10" id="TpM-wu-uPr"/>
                             <constraint firstItem="o0h-da-MXz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UJQ-63-4s7"/>
                             <constraint firstItem="6YO-w2-K0K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UyR-eG-czS"/>
                             <constraint firstItem="DZf-hT-rTj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="afp-i6-gRT"/>
@@ -276,15 +276,15 @@
                         <outlet property="rowTextField" destination="W4m-K0-HMk" id="GwC-a3-XFX"/>
                         <outlet property="setValueButton" destination="Cu8-5F-XB6" id="YjX-4N-dIo"/>
                         <outlet property="winLabel" destination="o0h-da-MXz" id="eZT-6R-ITX"/>
-                        <outletCollection property="xoButtons" destination="WD8-L5-EB9" collectionClass="NSMutableArray" id="lk4-YB-Ntu"/>
-                        <outletCollection property="xoButtons" destination="3Tt-wz-TmQ" collectionClass="NSMutableArray" id="Qm5-2K-8c7"/>
-                        <outletCollection property="xoButtons" destination="t1Y-nI-ycc" collectionClass="NSMutableArray" id="DAt-O8-f5h"/>
-                        <outletCollection property="xoButtons" destination="LwO-33-eBw" collectionClass="NSMutableArray" id="Zal-GW-9Nr"/>
-                        <outletCollection property="xoButtons" destination="gqe-GL-ioV" collectionClass="NSMutableArray" id="8nq-hF-Enu"/>
-                        <outletCollection property="xoButtons" destination="A6R-Ao-2Fk" collectionClass="NSMutableArray" id="DZs-6y-V5T"/>
-                        <outletCollection property="xoButtons" destination="909-hQ-5vx" collectionClass="NSMutableArray" id="slO-Pj-lPj"/>
-                        <outletCollection property="xoButtons" destination="MhW-T2-fu1" collectionClass="NSMutableArray" id="iRC-Zc-YVc"/>
-                        <outletCollection property="xoButtons" destination="VQB-w6-8GM" collectionClass="NSMutableArray" id="Xed-cN-iKB"/>
+                        <outletCollection property="xoButtons" destination="t1Y-nI-ycc" collectionClass="NSMutableArray" id="hXO-Va-Xt2"/>
+                        <outletCollection property="xoButtons" destination="WD8-L5-EB9" collectionClass="NSMutableArray" id="9pi-OZ-NHK"/>
+                        <outletCollection property="xoButtons" destination="3Tt-wz-TmQ" collectionClass="NSMutableArray" id="Qry-1c-Hex"/>
+                        <outletCollection property="xoButtons" destination="LwO-33-eBw" collectionClass="NSMutableArray" id="z9n-l7-x3y"/>
+                        <outletCollection property="xoButtons" destination="gqe-GL-ioV" collectionClass="NSMutableArray" id="yWG-nz-fct"/>
+                        <outletCollection property="xoButtons" destination="A6R-Ao-2Fk" collectionClass="NSMutableArray" id="QcJ-Dp-lvr"/>
+                        <outletCollection property="xoButtons" destination="909-hQ-5vx" collectionClass="NSMutableArray" id="AkS-YF-2HZ"/>
+                        <outletCollection property="xoButtons" destination="MhW-T2-fu1" collectionClass="NSMutableArray" id="40q-WK-rwm"/>
+                        <outletCollection property="xoButtons" destination="VQB-w6-8GM" collectionClass="NSMutableArray" id="xBd-ph-wwp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
