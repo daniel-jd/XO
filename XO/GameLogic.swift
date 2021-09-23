@@ -79,7 +79,9 @@ class GameLogic {
         printField()
     }
 
-    func setXValue(_ tag: Int) {
+    func setXValue(_ tag: Int) -> Bool {
+        delegate?.infoLabel.text = ""
+        var isSuccess = false
         var row = 0
         var col = 0
         switch tag {
@@ -101,12 +103,14 @@ class GameLogic {
             let index = tag
             delegate?.displaySymbol(index: index, symbol: userSymbol)
             cellsTaken += 1
+            isSuccess = true
         } else {
             delegate?.infoLabel.text = "This coodinate is taken"
         }
-        printField()
+        return isSuccess
     }
 
+    // For debugging purposes
     func printField() {
         for i in 0...2 {
             for j in 0...2 {

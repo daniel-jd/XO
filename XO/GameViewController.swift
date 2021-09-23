@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var restartLabel: UILabel!
     
-    let xo = GameLogic()
+    private let xo = GameLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,27 +26,13 @@ class GameViewController: UIViewController {
         xo.createField()
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //infoLabel.text = NSLocalizedString("info", comment: "")
-    }
-    
-    @IBAction func setValueDidTap(_ sender: Any) {
-        infoLabel.text = ""
-//        xo.setXValue()
-        xo.checkGameStatus()
-        if !xo.gameIsOver {
-            xo.setOValue()
-        }
-    }
 
     @IBAction func fieldButtonDidTap(_ sender: UIButton) {
-        xo.setXValue(sender.tag)
-        xo.checkGameStatus()
-        if !xo.gameIsOver {
-            xo.setOValue()
+        if xo.setXValue(sender.tag) {
+            xo.checkGameStatus()
+            if !xo.gameIsOver {
+                xo.setOValue()
+            }
         }
     }
 
