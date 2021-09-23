@@ -64,11 +64,11 @@
 		A58F184A264C52670010C50D /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				A5581696266238EE0041746D /* GameLogic.swift */,
+				A58F184F264C52670010C50D /* GameViewController.swift */,
+				A58F1851264C52670010C50D /* Main.storyboard */,
 				A58F184B264C52670010C50D /* AppDelegate.swift */,
 				A58F184D264C52670010C50D /* SceneDelegate.swift */,
-				A58F184F264C52670010C50D /* GameViewController.swift */,
-				A5581696266238EE0041746D /* GameLogic.swift */,
-				A58F1851264C52670010C50D /* Main.storyboard */,
 				A551E3E7265C276400F3EC14 /* Assets.xcassets */,
 				A58F1856264C526A0010C50D /* LaunchScreen.storyboard */,
 				A58F1859264C526A0010C50D /* Info.plist */,

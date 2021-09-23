@@ -9,8 +9,6 @@ import UIKit
 
 protocol GameDelegate: class {
     func displaySymbol(index: Int, symbol: UIImage)
-    var rowTextField: UITextField! { get set }
-    var columnTextField: UITextField! { get set }
     var infoLabel: UILabel! { get set }
     var winLabel: UILabel! { get set }
 }
@@ -22,9 +20,9 @@ class GameLogic {
     
     weak var delegate: GameDelegate?
     private(set) var field = [[Int]]() // Поле для крестиков-ноликов
-    private let emptyCell = 0
-    private let xCell = 1
-    private let oCell = -1
+    private let emptyCellValue = 0
+    private let xCellValue = 1
+    private let oCellValue = -1
     private var playerName = ""
     private let userSymbol = #imageLiteral(resourceName: "X")
     private let computerSymbol = #imageLiteral(resourceName: "O")
@@ -44,7 +42,7 @@ class GameLogic {
         cellsTaken = 0
         for i in 0...2 {
             for j in 0...2 {
-                field[i][j] = emptyCell
+                field[i][j] = emptyCellValue
             }
         }
     }
@@ -53,49 +51,70 @@ class GameLogic {
         for _ in 0...2 {
             var tempArray = [Int]()
             for _ in 0...2 {
-                tempArray.append(emptyCell)
+                tempArray.append(emptyCellValue)
             }
             field.append(tempArray)
         }
     }
     
-    func getButtonIndex(_ column: Int, _ row: Int) -> Int {
-        let indexOfButton = (field[row].count * column + row)
+    func getButtonIndex(_ row: Int, _ column: Int) -> Int {
+        let indexOfButton = (field[column].count * row + column)
         return indexOfButton
     }
     
     func setOValue() {
-        var column = 0
         var row = 0
+        var column = 0
         // Проверяем, чтобы нолик установился в незанятую ячейку
         repeat {
-            column = Int.random(in: 0...2)
             row = Int.random(in: 0...2)
-        } while !(field[column][row] == emptyCell)
+            column = Int.random(in: 0...2)
+        } while !(field[row][column] == emptyCellValue)
         
-        field[column][row] = oCell
-        let index = getButtonIndex(column, row)
+        field[row][column] = oCellValue
+        let index = getButtonIndex(row, column)
         delegate?.displaySymbol(index: index, symbol: computerSymbol)
         cellsTaken += 1
         checkGameStatus()
+        printField()
     }
-    
-    func setXValue() {
-        guard let row = Int((delegate?.rowTextField.text)!),
-              let col = Int((delegate?.columnTextField.text)!) else {
-            delegate?.infoLabel.text = "Column or row is not correct"
-            return
+
+    func setXValue(_ tag: Int) {
+        var row = 0
+        var col = 0
+        switch tag {
+        case 0, 3, 6:
+            col = 0
+            row = (tag - col) / 3
+        case 1, 4, 7:
+            col = 1
+            row = (tag - col) / 3
+        case 2, 5, 8:
+            col = 2
+            row = (tag - col) / 3
+        default:
+            break
         }
-        if field[col-1][row-1] == emptyCell {
-            field[col-1][row-1] = xCell
-            delegate?.rowTextField.text = ""
-            delegate?.columnTextField.text = ""
-            let index = getButtonIndex(col-1, row-1)
+
+        if field[row][col] == emptyCellValue {
+            field[row][col] = xCellValue
+            let index = tag
             delegate?.displaySymbol(index: index, symbol: userSymbol)
             cellsTaken += 1
         } else {
             delegate?.infoLabel.text = "This coodinate is taken"
         }
+        printField()
+    }
+
+    func printField() {
+        for i in 0...2 {
+            for j in 0...2 {
+                print(field[i][j], terminator:" ")
+            }
+            print()
+        }
+        print()
     }
     
     func checkWin() -> (isWin: Bool, winnerName: String) {
@@ -148,7 +167,7 @@ class GameLogic {
     func checkColumn(_ sum: inout Int, for winSum: Int) -> Bool {
         var isWin = false
         for j in 0..<field.count {
-            var sum = 0
+            sum = 0
             for i in 0..<field.count {
                 sum += field[i][j]
             }
@@ -162,7 +181,7 @@ class GameLogic {
     
     func checkLeftDiagonal(_ sum: inout Int, for winSum: Int) -> Bool {
         var isWin = false
-        var sum = 0
+        sum = 0
         for i in 0..<field.count {
             for j in 0..<field.count {
                 if i == j {
@@ -179,7 +198,7 @@ class GameLogic {
     
     func checkRightDiagonal(_ sum: inout Int, for winSum: Int) -> Bool {
         var isWin = false
-        var sum = 0
+        sum = 0
         for i in 0..<field.count {
             for j in 0..<field.count {
                 if i == (field.count - 1 - j) {
@@ -199,14 +218,15 @@ class GameLogic {
         if cellsTaken > 4 && checkWin().0 {
             delegate?.winLabel.text = "\(checkWin().1) WIN!"
             gameIsOver = true
+            return
         }
         // Проверка на наличие свободных клеток для хода
         if !gameIsOver && cellsTaken == 9 {
             delegate?.infoLabel.text = "No more free cells"
             delegate?.winLabel.text = "GAME OVER"
             gameIsOver = true
+            return
         }
     }
-    
     
 }
